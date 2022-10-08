@@ -19,3 +19,10 @@ Te project consists 3 steps:
 3. Development of DL model and deployment it into the app to increase 
    the quality of recommendations
    
+### Datasets
+`pip install kaggle`
+1. Spotify dataset
+
+`kaggle datasets download -d vatsalmavani/spotify-dataset -p ./datasets/spotify`
+
+`unzip datasets/spotify/spotify-dataset.zip -d datasets/spotify && rm datasets/spotify/spotify-dataset.zip`
