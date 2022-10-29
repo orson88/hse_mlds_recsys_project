@@ -1,0 +1,9 @@
+List of helpful links for research
+
+Acoustic/Music/Audio features for ML and insights on RecSys:
+https://www.researchgate.net/publication/220655574_Music_Recommendation_Based_on_Acoustic_Features_and_User_Access_Patterns
+https://www.researchgate.net/publication/221300381_A_music_recommender_based_on_audio_features
+https://www.researchgate.net/publication/283038767_Combining_visual_and_acoustic_features_for_music_genre_classification
+https://github.com/alikaratana/Music-Genre-Classification
+https://github.com/ojasvin/Music-Genre-Classification-with-Python
+
