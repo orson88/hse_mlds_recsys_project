@@ -20,9 +20,6 @@ Te project consists 3 steps:
    the quality of recommendations
    
 ### Datasets
-`pip install kaggle`
-1. Spotify dataset
+1. Songs features
 
-`kaggle datasets download -d vatsalmavani/spotify-dataset -p ./datasets/spotify`
-
-`unzip datasets/spotify/spotify-dataset.zip -d datasets/spotify && rm datasets/spotify/spotify-dataset.zip`
+`wget --no-verbose https://www.dropbox.com/s/sr4ejcgeedlt79m/tracks_feats.csv`
