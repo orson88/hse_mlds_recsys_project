@@ -87,3 +87,4 @@ fabric.properties
 
 # Another directories to ignore
 datasets
+.ipynb_checkpoints
