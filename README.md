@@ -24,7 +24,7 @@ Te project consists 3 steps:
 ### Datasets
 1. Users & Playlists from Spotify
 
-https://www.kaggle.com/datasets/andrewmvd/spotify-playlists
+`https://www.kaggle.com/datasets/andrewmvd/spotify-playlists`
 
 2. Songs features
 
