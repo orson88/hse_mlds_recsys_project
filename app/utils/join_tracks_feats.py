@@ -9,8 +9,12 @@ def join_tracks_feats(df: pd.DataFrame) -> pd.DataFrame:
     :return: DataFrame with joined song features
     """
     workdir = Path(__file__).parent
-    tracks_feats = pd.read_csv(workdir / 'tracks_feats.csv', sep='\t')
+    tracks_feats = pd.read_csv(workdir.parent / 'data' / 'tracks_feats.csv', sep='\t')
 
-    df = pd.merge(df, tracks_feats, left_on=['artistname', 'trackname'], right_on=['artist', 'song_name'])
+    df = pd.merge(df,
+                  tracks_feats,
+                  how='left',
+                  left_on=['artistname', 'trackname'],
+                  right_on=['artist', 'song_name'])
 
     return df
