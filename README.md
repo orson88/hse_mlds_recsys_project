@@ -7,6 +7,8 @@ A repo for an annual group project from machine learning and highload system cou
 |-------|-------|
 |**30.09.2022**|work environment setup: notion, trello, github|
 |**07.10.2022**|to choose a dataset on kaggle|
+|**15.11.2022**|EDA|
+|**23.12.2022**|Play with basic models from LightFM & implicit|
 
 ### Concept
 We plan to develop a recommendation system for music as a web app. 
