@@ -3,6 +3,11 @@ from pathlib import Path
 
 
 def join_tracks_feats(df: pd.DataFrame) -> pd.DataFrame:
+    """
+
+    :param df: DataFrame that includes artistname an trackname columns
+    :return: DataFrame with joined song features
+    """
     workdir = Path(__file__).parent
     tracks_feats = pd.read_csv(workdir / 'tracks_feats.csv', sep='\t')
 
