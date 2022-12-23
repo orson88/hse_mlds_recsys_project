@@ -22,6 +22,10 @@ Te project consists 3 steps:
    the quality of recommendations
    
 ### Datasets
-1. Songs features
+1. Users & Playlists from Spotify
+
+https://www.kaggle.com/datasets/andrewmvd/spotify-playlists
+
+2. Songs features
 
 `wget --no-verbose https://www.dropbox.com/s/sr4ejcgeedlt79m/tracks_feats.csv`
