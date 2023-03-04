@@ -15,7 +15,7 @@ def precision(true_list: List[str], recommended_list: List[str]) -> float:
 def precision_at_k(true_list: List[str], recommended_list: List[str], k=5) -> float:
     recommended_list = recommended_list[:k]
 
-    return precision(recommended_list, true_list)
+    return precision(true_list, recommended_list)
 
 
 def recall(true_list: List[str], recommended_list: List[str]) -> float:
@@ -32,7 +32,7 @@ def recall(true_list: List[str], recommended_list: List[str]) -> float:
 def recall_at_k(true_list: List[str], recommended_list: List[str], k=5) -> float:
     recommended_list = recommended_list[:k]
 
-    return recall(recommended_list, true_list)
+    return recall(true_list, recommended_list)
 
 
 def ap_k(true_list: List[str], recommended_list: List[str], k=5) -> float:
@@ -47,7 +47,7 @@ def ap_k(true_list: List[str], recommended_list: List[str], k=5) -> float:
             num_hits += 1
             score += num_hits / (i+1)
 
-    if not true_list:
+    if len(true_list) == 0:
         return 0.
 
     return score / min(len(true_list), k)
