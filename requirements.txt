@@ -4,6 +4,7 @@ pandas
 matplotlib
 seaborn
 scikit-learn
-#implicit
+implicit
 jupyterlab
 optuna
+fastapi[all]

@@ -37,3 +37,9 @@ Te project consists 3 steps:
 2. Songs features
 
 `wget --no-verbose https://www.dropbox.com/s/sr4ejcgeedlt79m/tracks_feats.csv`
+
+### RecSys FastApi
+
+- run FastApi app
+
+``uvicorn service:app --reload ``
