@@ -1,29 +1,30 @@
 from fastapi import FastAPI
-import pickle
 from scipy.sparse import load_npz
+import pickle
 import pandas as pd
-
-app = FastAPI(
-    title="RecSys App"
+import os
+from pydantic import BaseModel
+PROJ_PATH = os.path.dirname(
+    os.path.dirname(
+        os.path.realpath(__file__)
+    )
 )
 
+class UserInput(BaseModel):
+    user_id: str
+    n: int
 
-@app.get("/")
-async def root():
-    return "root"
-
-
-popular_songs = pd.read_csv("datasets/popular_songs.csv")
-user_item_matrix = load_npz('app/data/train_user_item_matrix.npz')
+popular_songs = pd.read_csv(f"{PROJ_PATH}/datasets/popular_songs.csv")
+user_item_matrix = load_npz(f"{PROJ_PATH}/app/data/train_user_item_matrix.npz")
 user_item_matrix = user_item_matrix.astype('float').tocsr()
 
-with open('app/models/als_best_params.pkl', 'rb') as f:
+with open(f"{PROJ_PATH}/app/models/als_best_params.pkl", 'rb') as f:
     als = pickle.load(f)
 
-with open('app/data/userids.pkl', 'rb') as f:
+with open(f"{PROJ_PATH}/app/data/userids.pkl", 'rb') as f:
     userids = pickle.load(f)
 
-with open('app/data/itemids.pkl', 'rb') as f:
+with open(f"{PROJ_PATH}/app/data/itemids.pkl", 'rb') as f:
     itemids = pickle.load(f)
 
 # Словари для перевода userid в id и наоборот
@@ -34,25 +35,22 @@ id_to_userid = {val: key for key, val in userid_to_id.items()}
 item_to_id = {item_id: idx for idx, item_id in enumerate(itemids)}
 id_to_item = {val: key for key, val in item_to_id.items()}
 
-
+app = FastAPI()
 @app.get("/predictions")
-async def get_recommendations(user_id: str = '00055176fea33f6e027cd3302289378b', n: int = 5):
-    if user_id in userid_to_id:  # рекомендации для луществующих пользователей
-        user_index = userid_to_id[user_id]
+async def get_recommendations(input:UserInput):
+    if input.user_id in userid_to_id:  # рекомендации для луществующих пользователей
+        user_index = userid_to_id[input.user_id]
         recs = als.recommend(
             userid=user_index,
             user_items=user_item_matrix[user_index],
-            N=n,  # кол-во рекомендаций
+            N=input.n,  # кол-во рекомендаций
             filter_already_liked_items=False,
             filter_items=None,
             recalculate_user=False
         )
 
-        return {"user": "known user",
-                "n_recommendations": n,
-                "recommendation": [id_to_item[rec] for rec in recs[0]]}
+        return [id_to_item[rec] for rec in recs[0]]
 
     else:  # самые популярные треки для новых пользователей
-        return {"user": "new user",
-                "n_recommendations": n,
-                "recommendation": list(popular_songs.iloc[:n, 1])}
+        return list(popular_songs.iloc[:input.n, 1])
+
