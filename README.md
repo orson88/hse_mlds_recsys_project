@@ -37,3 +37,14 @@ Te project consists 3 steps:
 2. Songs features
 
 `wget --no-verbose https://www.dropbox.com/s/sr4ejcgeedlt79m/tracks_feats.csv`
+
+### RecSys App
+
+each service should be launched from separate terminal instnces
+- run FastApi backend service
+
+`` python -m uvicorn web_app.ourapi:app --reload --port 8054``
+
+- run streamlit frontend service
+
+`` streamlit run web_app/main.py --server.port 8090``
