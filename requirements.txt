@@ -9,3 +9,4 @@ jupyterlab
 optuna
 fastapi[all]
 torch
+wget
