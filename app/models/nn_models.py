@@ -21,10 +21,6 @@ class MatrixFactorization(nn.Module):
 
     def predict(self, user_index) -> np.array:
         with torch.inference_mode():
-            # pred = (
-            #     self.item_factors.weight
-            #     @ self.user_factors(torch.tensor([user_index])).t()
-            # ).reshape(-1).numpy()
             pred = self.forward(
                 torch.tensor([user_index]),
                 torch.arange(self.n_items)
