@@ -5,7 +5,7 @@ A repo for an annual group project from machine learning and highload system cou
 #### Build the image:
 `docker build -t project_jupyterlab .`
 #### Run a container:
-`docker run --rm -v $(PWD)/app/:/hse_mlds_recsys_project/app -v $(PWD)/experiments/:/hse_mlds_recsys_project/experiments -v $(PWD)/datasets/:/hse_mlds_recsys_project/dastasets -p 8877:8888 --name jupyterlab_container project_jupyterlab`
+`docker run --rm -v $(PWD)/app/:/hse_mlds_recsys_project/app -v $(PWD)/experiments/:/hse_mlds_recsys_project/experiments -v $(PWD)/datasets/:/hse_mlds_recsys_project/datasets -p 8877:8888 --name jupyterlab_container project_jupyterlab`
 ##### Note:
 You can change your local port: `-p <yourLocalPort>:8888` 
 
