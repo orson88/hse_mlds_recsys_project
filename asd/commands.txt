@@ -1,0 +1,23 @@
+#from postgres into DB 
+
+
+create table main_table (user_id varchar, song varchar, new_user_id int, song_id int, connect int);
+copy main_table from '/var/train.csv' DELIMITER ',' CSV HEADER;
+
+
+#build and run backend
+docker container run --publish 8080:8080 --name fkin-slave backend_recsys
+
+#access Postgre and create tables
+psql --host=$(minikube ip)      --port=$(minikube service postgres --url --format={{.Port}})      --username=postgres      --dbname=postgres
+
+create table train_table (user_id varchar, song varchar, new_user_id int, song_id int, connect int);
+copy train_table from '/var/train.csv' DELIMITER ',' CSV HEADER;
+
+create table test_table (user_id varchar, song varchar, new_user_id int, song_id int, connect int);
+copy test_table from '/var/test.csv' DELIMITER ',' CSV HEADER;
+
+
+#Kafka init
+cd /opt/bitnami/kafka/bin/ 
+kafka-topics.sh --bootstrap-server localhost:9092 --create --replication-factor 1 --partitions 1 --topic new_reactions
