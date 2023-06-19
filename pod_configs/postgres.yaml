@@ -86,7 +86,6 @@ metadata:
     app: postgres
     role: service
 spec:
-  clusterIP: 10.96.0.2
   selector:
     app: postgres
     role: service
