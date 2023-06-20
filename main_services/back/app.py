@@ -3,12 +3,12 @@ import pandas as pd
 import scipy.sparse as scpspr
 import pickle
 from fastapi import FastAPI
-import implicit 
+import os
 
 class MyConnection:
     def __init__(self):
         self.conn = psycopg2.connect(
-            host = "10.96.0.10",
+            host = os.environ.get('POSTGRES_SERVICE_HOST'),
             port = 5432,
             user = 'postgres',
             password = 'test1',
@@ -16,7 +16,7 @@ class MyConnection:
         )
     def reinit_conn(self):
         self.conn = psycopg2.connect(
-            host = "10.96.0.10",
+            host = os.environ.get('POSTGRES_SERVICE_HOST'),
             port = 5432,
             user = 'postgres',
             password = 'test1',

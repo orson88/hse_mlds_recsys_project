@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: frontend
+  labels:
+    app: frontend
+spec:
+  containers:
+  - name: frontend
+    image: orson88/recsys:frontend
+    ports:
+    - containerPort: 5454
+    command:
+        - /bin/sh
+        - -c
+        - |
+          streamlit run main.py --server.port 5454
