@@ -21,26 +21,21 @@ This repository shows how to launch a Minikube cluster and open localhosts on po
 `cd repository`
 
 
-3. Make the script executable.
+3. Launch Minikube cluster using the script.
 
-`chmod +x cluster-init.sh`
-
-
-4. Launch Minikube cluster using the script.
-
-`./cluster-init.sh`
+`sh cluster-init.sh`
 
 
-5. Verify that the Minikube cluster is running.
+4. Verify that the Minikube cluster is running.
 
 `minikube status`
 
 
-6. Access the localhosts on ports 3000 and 5454.
+5. Access the localhosts on ports 3000 and 5454.
 
 `http://localhost:5454/`
 
-7. Access Grafana by running 
+6. Access Grafana by running 
 `minikube service grafana-ext`
 
 
