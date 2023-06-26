@@ -9,14 +9,6 @@ A repo for an annual group project from machine learning and highload system cou
 ##### Note:
 You can change your local port: `-p <yourLocalPort>:8888` 
 
-### Timeline:
-
-|date   |task   |
-|-------|-------|
-|**30.09.2022**|work environment setup: notion, trello, github|
-|**07.10.2022**|to choose a dataset on kaggle|
-|**15.11.2022**|EDA|
-|**23.12.2022**|Play with basic models from LightFM & implicit|
 
 ### Concept
 We plan to develop a recommendation system for music as a web app. 
@@ -48,3 +40,7 @@ each service should be launched from separate terminal instnces
 - run streamlit frontend service
 
 `` streamlit run web_app/main.py --server.port 8090``
+
+### Cluster usage
+switch to branch arspoz to see the further guide
+##
