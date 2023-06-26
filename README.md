@@ -11,7 +11,7 @@ This repository shows how to launch a Minikube cluster and open localhosts on po
 
 ## Usage
 
-1. Clone the repository.
+1. Clone the repository and switch to arspoz branch.
 
 `git clone https://github.com/username/repository.git`
 
