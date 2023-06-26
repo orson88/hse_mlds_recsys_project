@@ -13,8 +13,16 @@ This repository shows how to launch a Minikube cluster and open localhosts on po
 
 1. Clone the repository and switch to arspoz branch.
 
-`git clone https://github.com/username/repository.git`
+'git clone https://github.com/username/repository.git
+cd repository
+git fetch origin
+git checkout arspoz
+git pull origin arspoz'
 
+
+Replace "username" with the username of the owner of the repository and "repository" with the name of the repository you want to clone. This script will clone the repository, navigate into the repository directory, fetch all the branches from the remote repository, switch to the "arspoz" branch, and download the contents of the "arspoz" branch.
+
+Note that this assumes that the "arspoz" branch already exists in the remote repository. If the branch does not exist, you will get an error message.
 
 2. Navigate to the repository.
 
